@@ -1,0 +1,18 @@
+# Gradle build artifacts
+.gradle/
+build/
+run/
+*.class
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+reports/
+
+# IDE / OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db

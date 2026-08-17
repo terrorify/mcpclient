@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "mcpclient",
+	"version": "${version}",
+	"name": "MCP Client",
+	"description": "MCP-bridged debug client: exposes vanilla-physics client truth (ticks, movement packets, world) over a local MCP server for Claude-driven e2e testing.",
+	"authors": ["terrorify"],
+	"contact": {},
+	"license": "ARR",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"dev.terrorify.tools.mcpclient.McpClientMod"
+		]
+	},
+	"mixins": [
+		"mcpclient.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.1.1",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
