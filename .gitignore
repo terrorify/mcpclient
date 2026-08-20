@@ -6,9 +6,10 @@ run/
 
 # Python artifacts
 __pycache__/
-*.pyc
-*.pyo
-reports/
+*.py[cod]
+*$py.class
+.pytest_cache/
+captures/
 
 # IDE / OS
 .idea/
