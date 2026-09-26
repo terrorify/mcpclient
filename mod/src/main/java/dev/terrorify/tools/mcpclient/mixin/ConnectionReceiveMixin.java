@@ -21,6 +21,12 @@ public abstract class ConnectionReceiveMixin {
     private void mcpclient$onReceive(ChannelHandlerContext ctx, Packet<?> packet, CallbackInfo ci) {
         if (packet instanceof ClientboundPlayerPositionPacket position) {
             NetTaps.recordInbound(position);
+        } else if (packet instanceof net.minecraft.network.protocol.game.ClientboundLevelChunkWithLightPacket chunkPacket) {
+            System.out.println("[mcpclient-debug] Received LevelChunkWithLightPacket: (" + chunkPacket.getX() + ", " + chunkPacket.getZ() + ")");
+        } else if (packet instanceof net.minecraft.network.protocol.game.ClientboundChunkBatchStartPacket) {
+            System.out.println("[mcpclient-debug] Received ChunkBatchStartPacket");
+        } else if (packet instanceof net.minecraft.network.protocol.game.ClientboundChunkBatchFinishedPacket finished) {
+            System.out.println("[mcpclient-debug] Received ChunkBatchFinishedPacket: batchSize=" + finished.batchSize());
         }
     }
 }

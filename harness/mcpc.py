@@ -56,10 +56,12 @@ class McpClient:
     def call_tool(self, name: str, **arguments: Any) -> dict:
         result = self._request("tools/call", {"name": name, "arguments": arguments})
         text = result["content"][0]["text"]
-        data = json.loads(text)
         if result.get("isError"):
             raise McpError(f"{name}: {text}")
-        return data
+        try:
+            return json.loads(text)
+        except Exception:
+            return {"text": text}
 
     # -- Convenience wrappers over the mcpclient tool surface ---------------
 

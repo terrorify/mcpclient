@@ -54,8 +54,7 @@ public final class ConnectTool implements McpTool {
         ServerAddress address = new ServerAddress(host, port);
         ServerData serverData = new ServerData(host + ":" + port, host + ":" + port, ServerData.Type.OTHER);
 
-        mc.setScreen(new TitleScreen());
-        ConnectScreen.startConnecting(mc.screen, mc, address, serverData, false, null);
+        ConnectScreen.startConnecting(new TitleScreen(), mc, address, serverData, false, null);
 
         JsonObject result = new JsonObject();
         result.addProperty("connecting", true);
